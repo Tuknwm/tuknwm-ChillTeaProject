@@ -2,7 +2,7 @@
 
 > *Brewing pause in the midst of chaos.*
 
-A premium tea brand website built with Next.js 16, React 19, and Tailwind CSS. Features a custom animated loader, parallax hero section, interactive product menu, and smooth scroll experience.
+Chill Tea is a tea-based beverage brand that offers a flavor experience unlike your typical tea drinks. Crafted with premium ingredients and a consistent taste, every cup is designed to accompany your relaxing moments—whenever and wherever you are.
 
 ## Stack
 
