@@ -1,38 +1,29 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 const HIGHLIGHTS = [
   {
     id: "01",
-    title: "Single-Origin Pilihan",
-    desc: "Daun teh kami dipetik dengan tangan dari satu perkebunan spesifik di dataran tinggi. Hal ini memastikan konsistensi, karakter rasa yang kuat, dan jejak asal yang jelas dalam setiap cangkirnya."
+    title: "Curated Single-Origin",
+    desc: "Our tea leaves are hand-picked from one specific highland estate. This ensures consistency, strong flavor character, and a clear origin story in every cup."
   },
   {
     id: "02",
-    title: "100% Ekstraksi Alami",
-    desc: "Kami menolak segala bentuk kompromi. Tanpa perisa buatan, tanpa pewarna sintetik, dan tanpa pengawet. Warna dan aroma yang Anda nikmati murni berasal dari alam."
+    title: "100% Natural Extraction",
+    desc: "We refuse any form of compromise. No artificial flavors, no synthetic dyes, no preservatives. The color and aroma you enjoy come purely from nature."
   },
   {
     id: "03",
-    title: "Kemasan Eco-Conscious",
-    desc: "Ketenangan Anda tidak harus mengorbankan bumi. Kantong teh kami ditenun dari serat tanaman yang sepenuhnya dapat terurai secara hayati (biodegradable) tanpa mikroplastik."
+    title: "Eco-Conscious Packaging",
+    desc: "Your peace of mind shouldn't cost the earth. Our tea bags are woven from plant fibers that are fully biodegradable with zero microplastics."
   }
 ];
 
 export default function Highlights() {
-  const containerRef = useRef<HTMLElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const imageY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-
   return (
-    <section ref={containerRef} className="w-full bg-[#0a0a0a] pt-24 pb-40 px-6 md:px-12">
+    <section className="w-full bg-[#0a0a0a] pt-24 pb-40 px-6 md:px-12 rounded-t-[50px]">
       <div className="max-w-7xl mx-auto w-full">
 
         <div className="mb-20 text-center md:text-left flex flex-col md:flex-row justify-between items-end gap-8">
@@ -45,7 +36,7 @@ export default function Highlights() {
             >
               <div className="w-12 h-[1px] bg-[#949E7A]" />
               <span className="text-[#949E7A] tracking-[0.3em] text-xs uppercase font-bold">
-                Standar Kami
+                Our Standard
               </span>
             </motion.div>
 
@@ -56,32 +47,30 @@ export default function Highlights() {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-6xl text-white font-bold tracking-tight"
             >
-              KEMURNIAN <span className="font-serif italic font-light">Tanpa Kompromi.</span>
+              PURITY <span className="font-serif italic font-light">Without Compromise.</span>
             </motion.h2>
           </div>
 
-          <motion.div
+        </div>
+
+        <div className="w-full aspect-[16/9] md:aspect-[21/9] rounded-[2rem] overflow-hidden relative mb-24 bg-[#1a1a1a]">
+          <img
+            src="/OurStandard.jpg"
+            alt="Our Standard"
+            className="absolute inset-0 w-full h-full object-cover"
+            onError={(e) => {
+              e.currentTarget.src = "https://placehold.co/1600x800/1a1a1a/ffffff?text=Our+Standard";
+            }}
+          />
+          <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="md:max-w-sm text-white/50 text-sm md:text-base font-light text-center md:text-right"
+            className="absolute bottom-6 right-6 md:bottom-10 md:right-10 max-w-xs text-white text-sm md:text-base font-bold text-right z-10"
           >
-            <p>Kualitas sebuah teh ditentukan dari apa yang tidak dimasukkan ke dalamnya. Kami menjaga semuanya tetap sederhana dan nyata.</p>
-          </motion.div>
-        </div>
-
-        <div className="w-full aspect-[16/9] md:aspect-[21/9] rounded-[2rem] overflow-hidden relative mb-24 bg-[#1a1a1a]">
-          <motion.img
-            style={{ y: imageY, scale: 1.1 }}
-            src="/highlight.jpeg"
-            alt="Macro shot of pure tea leaves"
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
-            onError={(e) => {
-              e.currentTarget.src = "https://placehold.co/1600x800/1a1a1a/ffffff?text=Cinematic+Tea+Leaves";
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent opacity-50" />
+            The Quality Of A Tea Is Defined By What Is Left Out Of It. We Keep Everything Simple And Real.
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12">
@@ -92,15 +81,13 @@ export default function Highlights() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="flex flex-col border-t border-white/10 pt-8 relative group"
+              className="flex flex-col border-t border-white/10 pt-8 relative"
             >
-              <div className="absolute top-0 left-0 w-0 h-[1px] bg-[#949E7A] transition-all duration-500 group-hover:w-full" />
-
-              <span className="text-6xl md:text-7xl font-serif font-light text-white/10 mb-6 group-hover:text-[#949E7A]/40 transition-colors duration-500">
+              <span className="text-6xl md:text-7xl font-serif font-light text-white mb-6">
                 {item.id}
               </span>
 
-              <h3 className="text-2xl text-white font-bold tracking-tight mb-4 group-hover:text-[#949E7A] transition-colors duration-300">
+              <h3 className="text-2xl text-white font-bold tracking-tight mb-4">
                 {item.title}
               </h3>
 

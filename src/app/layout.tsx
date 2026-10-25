@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import DisableSelectAll from "@/components/DisableSelectAll";
+import CustomScrollbar from "@/components/CustomScrollbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const jakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "ChillTea",
   description: "Your next moment of calm is one sip away. Experience the ChillTea collection.",
+  icons: { icon: "/logo.png" },
 };
 
 export default function RootLayout({
@@ -17,18 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased bg-[#949E7A] text-white/90`}>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.addEventListener('keydown', function(e) {
-                if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'a') {
-                  e.preventDefault();
-                }
-              });
-            `,
-          }}
-        />
+      <body className={`${jakartaSans.className} antialiased bg-[#949E7A] text-white/90`}>
+        <DisableSelectAll />
+        <CustomScrollbar />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

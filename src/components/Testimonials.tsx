@@ -2,13 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const REVIEWS = [
-  "Ketenangan dalam setiap sisipan.",
-  "Aroma yang memulihkan fokus.",
-  "Ritual wajib setiap petang.",
-  "Kualiti teh terbaik yang pernah saya cuba.",
-  "Penenang fikiran selepas seharian bekerja.",
-  "Pembungkusan yang sangat premium.",
-  "Rasa yang sangat autentik dan mewah."
+  "Calm in every sip.",
+  "An aroma that restores focus.",
+  "My essential evening ritual.",
+  "The best tea quality I have ever tried.",
+  "A mind-soother after a long day of work.",
+  "Incredibly premium packaging.",
+  "A truly authentic and luxurious taste."
 ];
 
 export default function Testimonials() {
@@ -24,7 +24,7 @@ export default function Testimonials() {
         >
           <div className="w-8 h-[1px] bg-[#949E7A]" />
           <span className="text-[#949E7A] tracking-[0.3em] text-xs uppercase font-bold">
-            Kata Mereka
+            What They Say
           </span>
           <div className="w-8 h-[1px] bg-[#949E7A]" />
         </motion.div>
@@ -36,7 +36,7 @@ export default function Testimonials() {
           transition={{ delay: 0.2 }}
           className="text-3xl md:text-4xl lg:text-5xl text-white font-light leading-snug tracking-tight mb-10"
         >
-          "Semenjak menemui ChillTea, waktu petang saya bukan lagi tentang kepenatan, tetapi tentang <span className="font-serif italic text-[#949E7A]">menghargai diri sendiri</span>. Rasanya benar-benar menenangkan jiwa."
+          "Since discovering ChillTea, my evenings are no longer about exhaustion, but about <span className="font-serif italic text-[#949E7A]">honoring myself</span>. It truly calms the soul."
         </motion.h2>
 
         <motion.div
@@ -47,7 +47,7 @@ export default function Testimonials() {
           className="flex flex-col items-center"
         >
           <p className="text-white font-bold tracking-widest uppercase text-sm">Diana S.</p>
-          <p className="text-white/40 text-xs tracking-widest uppercase mt-1">Peminat Matcha, Jakarta</p>
+          <p className="text-white/40 text-xs tracking-widest uppercase mt-1">Matcha Enthusiast, Jakarta</p>
         </motion.div>
       </div>
 
@@ -75,7 +75,6 @@ export default function Testimonials() {
              width: max-content;
              animation: marquee-right 40s linear infinite;
            }
-           /* Jeda animasi bila di-hover */
            .animate-marquee-left:hover, .animate-marquee-right:hover {
              animation-play-state: paused;
            }

@@ -9,7 +9,7 @@ const SIGNATURE_MENU = [
     name: "Original Ice Tea",
     image: "/teamenu/tea.jpeg",
     price: "Rp8.000",
-    desc: "Seduhan teh hitam klasik pilihan.",
+    desc: "A classic black tea brew, simply perfect.",
     bgColor: "bg-[#949E7A]",
     bentoSize: "md:col-span-2 md:row-span-2",
   },
@@ -18,7 +18,7 @@ const SIGNATURE_MENU = [
     name: "Sweet Ice Tea",
     image: "/teamenu/teasug.jpeg",
     price: "Rp9.000",
-    desc: "Manis yang pas, tidak berlebihan.",
+    desc: "Just the right sweetness, never too much.",
     bgColor: "bg-[#7A8B9E]",
     bentoSize: "md:col-span-1 md:row-span-1",
   },
@@ -27,7 +27,7 @@ const SIGNATURE_MENU = [
     name: "Honey Ice Tea",
     image: "/teamenu/honey.jpeg",
     price: "Rp12.000",
-    desc: "Kebaikan madu murni.",
+    desc: "The goodness of pure honey.",
     bgColor: "bg-[#9E8B7A]",
     bentoSize: "md:col-span-1 md:row-span-1",
   },
@@ -36,7 +36,7 @@ const SIGNATURE_MENU = [
     name: "Lemon Ice Tea",
     image: "/teamenu/lemon.jpeg",
     price: "Rp12.000",
-    desc: "Segar dan membangkitkan semangat.",
+    desc: "Refreshing and uplifting.",
     bgColor: "bg-[#9E947A]",
     bentoSize: "md:col-span-1 md:row-span-1",
   },
@@ -44,8 +44,8 @@ const SIGNATURE_MENU = [
     id: 5,
     name: "Green Tea Ice",
     image: "/teamenu/greentea.jpeg",
-
-    desc: "Teh hijau murni yang merelaksasi.",
+    price: "Rp11.000",
+    desc: "Pure green tea that truly relaxes.",
     bgColor: "bg-[#7A9E8B]",
     bentoSize: "md:col-span-1 md:row-span-1",
   }
@@ -90,7 +90,6 @@ export default function TeaMenu() {
   return (
     <section id="products" className="relative w-full min-h-screen bg-[#0a0a0a] py-24 px-6 md:px-12 font-sans rounded-b-[50px]">
 
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#949E7A] to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto">
 
@@ -101,7 +100,7 @@ export default function TeaMenu() {
             viewport={{ once: true }}
             className="text-[#949E7A] tracking-[0.3em] text-xs uppercase font-bold"
           >
-            Eksplorasi Rasa
+            Explore the Flavors
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 10 }}
@@ -109,7 +108,7 @@ export default function TeaMenu() {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl text-white font-bold mt-4 tracking-tight uppercase"
           >
-            MENU CHILLTEA
+            CHILLTEA MENU
           </motion.h2>
         </div>
 
@@ -126,7 +125,7 @@ export default function TeaMenu() {
               <motion.div
                 key={item.id}
                 variants={itemVariants}
-                className={`relative group rounded-3xl p-8 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:scale-[0.98] cursor-pointer ${item.bentoSize}`}
+                className={`relative group rounded-[8px] p-8 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:scale-[0.98] cursor-default ${item.bentoSize}`}
                 style={{
                   backgroundImage: `url(${item.image})`,
                   backgroundSize: 'cover',
@@ -136,13 +135,13 @@ export default function TeaMenu() {
                   (e.target as HTMLDivElement).style.backgroundImage = `url(https://placehold.co/400x400/0a0a0a/ffffff?text=${item.name})`;
                 }}
               >
-                {/* <div className="relative z-10 self-end">
-                  <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] text-white font-bold tracking-wider">
+                {item.price && (
+                  <span className="absolute top-4 right-4 z-10 text-white font-bold text-sm tracking-wide drop-shadow-md">
                     {item.price}
                   </span>
-                </div> */}
+                )}
 
-                <div className="relative z-10 flex flex-col items-start mt-auto">
+                <div className="relative z-10 flex flex-col items-start mt-auto -mb-6 -ml-4">
                   <h4 className="text-2xl md:text-3xl font-bold text-white tracking-tight leading-none mb-2 drop-shadow-lg">
                     {item.name}
                   </h4>
@@ -170,9 +169,9 @@ export default function TeaMenu() {
               <motion.div
                 key={item.id}
                 variants={itemVariants}
-                className="group flex flex-col p-3 rounded-3xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors duration-300 cursor-pointer"
+                className="group flex flex-col p-3 rounded-[8px] bg-white/5 hover:bg-white/10 transition-colors duration-300 cursor-default"
               >
-                <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-4 bg-[#1a1a1a]">
+                <div className="relative w-full aspect-[4/5] rounded-[8px] overflow-hidden mb-4 bg-[#1a1a1a]">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -185,7 +184,7 @@ export default function TeaMenu() {
 
                 <div className="flex flex-col flex-grow justify-between px-1 pb-1">
                   <div>
-                    <h5 className="text-white font-medium text-base leading-tight mb-1 group-hover:text-[#949E7A] transition-colors">{item.name}</h5>
+                    <h5 className="text-white font-medium text-base leading-tight mb-1">{item.name}</h5>
                     <span className="text-white/40 text-[9px] uppercase tracking-widest">{item.category}</span>
                   </div>
                   <div className="mt-3">

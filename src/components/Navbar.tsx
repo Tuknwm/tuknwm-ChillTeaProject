@@ -8,7 +8,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-transparent py-4"
+      className="fixed top-0 left-0 right-0 transition-all duration-300 bg-transparent py-4" style={{ zIndex: 9999 }}
     >
       <div className="w-full px-6 md:px-12">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -29,16 +29,6 @@ export default function Navbar() {
             </span>
           </a>
 
-          <div className="flex items-center">
-            <motion.a
-              href="#order"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center px-6 py-2.5 bg-white text-[#949E7A] font-bold text-sm rounded-full hover:bg-white/90 transition-all duration-300 shadow-xl"
-            >
-              ORDER NOW
-            </motion.a>
-          </div>
 
         </div>
       </div>
