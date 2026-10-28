@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import DisableSelectAll from "@/components/DisableSelectAll";
 import CustomScrollbar from "@/components/CustomScrollbar";
+import MobileRedirect from "@/components/MobileRedirect";
 
 const jakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] });
 
@@ -22,8 +23,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${jakartaSans.className} antialiased bg-[#949E7A] text-white/90`}>
         <DisableSelectAll />
-        <CustomScrollbar />
-        <SmoothScroll>{children}</SmoothScroll>
+        <MobileRedirect>
+          <CustomScrollbar />
+          <SmoothScroll>{children}</SmoothScroll>
+        </MobileRedirect>
       </body>
     </html>
   );
